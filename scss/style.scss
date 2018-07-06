@@ -1,0 +1,208 @@
+@import 'grid';
+@import 'reset';
+
+$bg-red:rgb(229, 0, 74);
+$bg-yellow:rgba(252, 202, 0, 1);
+$bg-blue:rgba(121, 192, 224, 1);
+$bg-blue1:rgba(0, 160, 190, 1);
+
+body {
+    font-family: Microsoft JhengHei !important;
+    text-decoration: none !important;
+}
+
+
+.wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    // height: 100px;
+    margin: 0 auto;
+    @include pad {
+        margin: 0;
+        background: $bg-red;
+        height: 100px;
+    }
+    @include iphone {
+        height: 56px;
+    }
+    .logo {
+        margin-right: 20px;
+        height: 60px;
+        margin-bottom: 20px;
+        @include pad {
+            padding: 10px;
+        }
+        img{
+            @include iphone {
+                height: 100%;
+                margin-top: 10px;
+            }
+        }
+        
+    }
+    .list {
+        @include pad() {
+            max-height: 0px;
+            overflow: hidden;
+            transition: max-height 1.3s;
+            position: absolute;
+            z-index: 100;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background: rgb(229, 0, 74);
+            text-align: center;
+        }
+        @include iphone() {
+            top: 56px;
+            margin-top: -1px ;
+        }
+        .first {
+            a {
+                background: rgb(229, 0, 74);
+                color: #fff;
+            }
+        }
+        li {
+            a {
+                padding: 20px;
+                color: rgb(229, 0, 74);
+                font-weight: 900;
+                text-decoration: none;
+                @include pad{
+                    display: block;
+                    padding: 27.5px;
+                    font-size: 30px;
+                    color: #fff;
+                }
+                @include iphone{
+                    padding: 20px;
+                    font-size: 16px;
+                }
+            }
+        }
+        .li-last{
+            @include pad{
+                display: none;
+            }
+            .fb {
+                margin-right: 10px;
+                padding: 0;
+                @include pad{
+                    
+                }
+                img {
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    vertical-align: middle;
+                }
+            }
+            .download {
+                background: rgb(73, 157, 213);
+                color: #fff;
+                font-size: 16px;
+                height: 30px;
+                padding: 5px;
+                border-radius: 5px;
+                line-height: 20px;
+            }
+        }
+        
+    }
+}
+.menu-show .list{
+    max-height: 600px;
+    @include iphone{
+        max-height: 600px;
+    }
+}
+
+.menu-burgermenu {
+    display: none;
+    margin: 16px 6px 16px auto;
+    @include pad {
+        display: block;
+    }
+    a {
+        font-size: 50px;
+        padding: 20px;
+        @include iphone {
+            font-size: 24px;
+            padding: 16px;
+        }
+        i{
+            color: #FFFFFF;
+        }
+    }
+}
+
+.content {
+    padding: 50px;
+    width: 100%;
+    background: linear-gradient(0deg, $bg-blue 40%, #afafaf00 50%), linear-gradient(0deg, $bg-blue1 40%, $bg-yellow 80%);
+    @include pad() {
+        padding: 0;
+    }
+    .img {
+        margin: 100px auto;
+        img {
+            width: 100%;
+        }
+    }
+}
+.content-text {
+    margin: 0 auto;
+    position: relative;
+    padding: 50px;
+    color: #fff;
+    @include pad() {
+        font-size: 30px;
+        margin: 100px 0;
+        padding: 10px;
+    }
+    @include iphone() {
+        font-size: 20px;
+    }
+    .content-logo {
+        position: absolute;
+        right: 100px;
+        top: 50px;
+        @include pad() {
+            display: none;
+        }
+    }
+}
+
+.footer {
+    background: rgb(1, 160, 190); // border: 1px solid #000;
+    text-align: center;
+    line-height: 60px;
+    @include pad() {
+        line-height: 100px;
+    }
+    @include iphone() {
+        line-height: 30px;
+        padding: 20px;
+    }
+    b {
+        color: #fff;
+        font-size: 10px;
+        @include pad() {
+            font-size: 20px;
+        }
+        @include iphone() {
+            font-size: 20px;
+            line-height: 30px;
+        }
+        br{
+            display: none;
+            @include iphone() {
+                display: block;
+            }
+        }
+    }
+}
