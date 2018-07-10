@@ -180,6 +180,9 @@ body {
     .content .img .bg-img {
       position: absolute;
       z-index: 1; }
+      @media (max-width: 568px) {
+        .content .img .bg-img {
+          display: none; } }
     @media (max-width: 768px) {
       .content .img .md-cantsee {
         display: none; } }

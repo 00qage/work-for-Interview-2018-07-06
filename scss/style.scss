@@ -173,6 +173,9 @@ body {
         .bg-img{
             position: absolute;
             z-index: 1;
+            @include iphone() {
+                display: none;
+            }
         }
         .md-cantsee{
             @include pad() {
