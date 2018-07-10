@@ -1,16 +1,13 @@
 @import 'grid';
 @import 'reset';
-
 $bg-red:rgb(229, 0, 74);
 $bg-yellow:rgba(252, 202, 0, 1);
 $bg-blue:rgba(121, 192, 224, 1);
 $bg-blue1:rgba(0, 160, 190, 1);
-
 body {
     font-family: Microsoft JhengHei !important;
     text-decoration: none !important;
 }
-
 
 .wrap {
     max-width: 1200px;
@@ -20,6 +17,8 @@ body {
 .header {
     // height: 100px;
     margin: 0 auto;
+    position: relative;
+    z-index: 50;
     @include pad {
         margin: 0;
         background: $bg-red;
@@ -35,13 +34,12 @@ body {
         @include pad {
             padding: 10px;
         }
-        img{
+        img {
             @include iphone {
                 height: 100%;
                 margin-top: 10px;
             }
         }
-        
     }
     .list {
         @include pad() {
@@ -53,47 +51,62 @@ body {
             top: 100px;
             left: 0;
             right: 0;
-            background: rgb(229, 0, 74);
+            background: $bg-red;
             text-align: center;
+            @include pad {
+                background: rgba(229, 0, 72, .5);
+            }
         }
         @include iphone() {
             top: 56px;
-            margin-top: -1px ;
+            margin-top: -1px;
         }
-        .first {
+        .first-li {
             a {
-                background: rgb(229, 0, 74);
+                background: $bg-red;
                 color: #fff;
+                @include pad {
+                    background: rgba(229, 0, 72, .5);
+                }
             }
         }
         li {
+            +* {
+                a {
+                    text-shadow: 1px 0px 0px #fff, -1px 0px 0px #fff,0px 1px 0px #fff,0px -1px 0px #fff,
+                    0 2.5px 3px rgba(0, 0, 0, 0.3);
+                    @include pad {
+                        text-shadow: none;
+                    }
+                }
+            }
             a {
                 padding: 20px;
-                color: rgb(229, 0, 74);
-                font-weight: 900;
+                color: $bg-red;
+                font-weight: bolder;
+                font-size: 20px;
                 text-decoration: none;
-                @include pad{
+                @include pad {
                     display: block;
                     padding: 27.5px;
                     font-size: 30px;
                     color: #fff;
+                    background: rgba(229, 0, 72, .5);
                 }
-                @include iphone{
+                @include iphone {
                     padding: 20px;
                     font-size: 16px;
                 }
             }
         }
-        .li-last{
-            @include pad{
+        .li-last {
+            @include pad {
                 display: none;
             }
             .fb {
                 margin-right: 10px;
                 padding: 0;
-                @include pad{
-                    
-                }
+                @include pad {}
                 img {
                     width: 30px;
                     height: 30px;
@@ -102,6 +115,7 @@ body {
                 }
             }
             .download {
+                margin-top: 3px;
                 background: rgb(73, 157, 213);
                 color: #fff;
                 font-size: 16px;
@@ -109,14 +123,15 @@ body {
                 padding: 5px;
                 border-radius: 5px;
                 line-height: 20px;
+                text-shadow: none;
             }
         }
-        
     }
 }
-.menu-show .list{
+
+.menu-show .list {
     max-height: 600px;
-    @include iphone{
+    @include iphone {
         max-height: 600px;
     }
 }
@@ -134,26 +149,43 @@ body {
             font-size: 24px;
             padding: 16px;
         }
-        i{
+        i {
             color: #FFFFFF;
         }
     }
 }
 
 .content {
-    padding: 50px;
+    padding: 50px 0;
     width: 100%;
     background: linear-gradient(0deg, $bg-blue 40%, #afafaf00 50%), linear-gradient(0deg, $bg-blue1 40%, $bg-yellow 80%);
     @include pad() {
         padding: 0;
     }
     .img {
-        margin: 100px auto;
+        max-width: 100%;
+        position: relative;
+        text-align: center;
+        margin: 20px 0;
         img {
-            width: 100%;
+            max-width: 100%;
+        }
+        .bg-img{
+            position: absolute;
+            z-index: 1;
+        }
+        .md-cantsee{
+            @include pad() {
+                display: none;
+            }
+        }
+        .main-img{
+            position: relative;
+            z-index: 3;
         }
     }
 }
+
 .content-text {
     margin: 0 auto;
     position: relative;
@@ -198,7 +230,7 @@ body {
             font-size: 20px;
             line-height: 30px;
         }
-        br{
+        br {
             display: none;
             @include iphone() {
                 display: block;

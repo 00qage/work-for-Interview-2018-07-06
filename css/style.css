@@ -45,7 +45,9 @@ body {
   margin: 0 auto; }
 
 .header {
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative;
+  z-index: 50; }
   @media (max-width: 768px) {
     .header {
       margin: 0;
@@ -79,24 +81,37 @@ body {
       right: 0;
       background: #e5004a;
       text-align: center; } }
+  @media (max-width: 768px) and (max-width: 768px) {
+    .header .list {
+      background: rgba(229, 0, 72, 0.5); } }
   @media (max-width: 568px) {
     .header .list {
       top: 56px;
       margin-top: -1px; } }
-  .header .list .first a {
+  .header .list .first-li a {
     background: #e5004a;
     color: #fff; }
+    @media (max-width: 768px) {
+      .header .list .first-li a {
+        background: rgba(229, 0, 72, 0.5); } }
+  .header .list li + * a {
+    text-shadow: 1px 0px 0px #fff, -1px 0px 0px #fff, 0px 1px 0px #fff, 0px -1px 0px #fff, 0 2.5px 3px rgba(0, 0, 0, 0.3); }
+    @media (max-width: 768px) {
+      .header .list li + * a {
+        text-shadow: none; } }
   .header .list li a {
     padding: 20px;
     color: #e5004a;
-    font-weight: 900;
+    font-weight: bolder;
+    font-size: 20px;
     text-decoration: none; }
     @media (max-width: 768px) {
       .header .list li a {
         display: block;
         padding: 27.5px;
         font-size: 30px;
-        color: #fff; } }
+        color: #fff;
+        background: rgba(229, 0, 72, 0.5); } }
     @media (max-width: 568px) {
       .header .list li a {
         padding: 20px;
@@ -113,13 +128,15 @@ body {
       line-height: 30px;
       vertical-align: middle; }
   .header .list .li-last .download {
+    margin-top: 3px;
     background: #499dd5;
     color: #fff;
     font-size: 16px;
     height: 30px;
     padding: 5px;
     border-radius: 5px;
-    line-height: 20px; }
+    line-height: 20px;
+    text-shadow: none; }
 
 .menu-show .list {
   max-height: 600px; }
@@ -144,7 +161,7 @@ body {
       color: #FFFFFF; }
 
 .content {
-  padding: 50px;
+  padding: 50px 0;
   width: 100%;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, #79c0e0), color-stop(50%, #afafaf00)), -webkit-gradient(linear, left bottom, left top, color-stop(40%, #00a0be), color-stop(80%, #fcca00));
   background: -webkit-linear-gradient(bottom, #79c0e0 40%, #afafaf00 50%), -webkit-linear-gradient(bottom, #00a0be 40%, #fcca00 80%);
@@ -154,9 +171,21 @@ body {
     .content {
       padding: 0; } }
   .content .img {
-    margin: 100px auto; }
+    max-width: 100%;
+    position: relative;
+    text-align: center;
+    margin: 20px 0; }
     .content .img img {
-      width: 100%; }
+      max-width: 100%; }
+    .content .img .bg-img {
+      position: absolute;
+      z-index: 1; }
+    @media (max-width: 768px) {
+      .content .img .md-cantsee {
+        display: none; } }
+    .content .img .main-img {
+      position: relative;
+      z-index: 3; }
 
 .content-text {
   margin: 0 auto;
