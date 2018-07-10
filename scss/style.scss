@@ -18,7 +18,7 @@ body {
     // height: 100px;
     margin: 0 auto;
     position: relative;
-    z-index: 50;
+    z-index: 4;
     @include pad {
         margin: 0;
         background: $bg-red;
@@ -63,6 +63,7 @@ body {
         }
         .first-li {
             a {
+                padding: 30px;
                 background: $bg-red;
                 color: #fff;
                 @include pad {
@@ -156,6 +157,7 @@ body {
 }
 
 .content {
+    position: relative;
     padding: 50px 0;
     width: 100%;
     background: linear-gradient(0deg, $bg-blue 40%, #afafaf00 50%), linear-gradient(0deg, $bg-blue1 40%, $bg-yellow 80%);
@@ -185,6 +187,19 @@ body {
         .main-img{
             position: relative;
             z-index: 3;
+        }
+    }
+    .white-border{
+        position: absolute;
+        z-index: 5;
+        width: 100%;
+        height: 90%;
+        padding:0 20px;
+        @include pad() {
+            display: none;
+        }
+        >* {
+            position: absolute;
         }
     }
 }
